@@ -1,0 +1,12 @@
+SELECT patient_id
+,owner_id
+,owner_name
+,pet_type
+,IFNULL(breed, 'Unknown') AS breed
+,CONCAT(UPPER(SUBSTR(patient_name, 1, 1)), LOWER(SUBSTR(patient_name, 2))) AS patient_name
+,gender
+,patient_age
+,date_registration
+,REGEXP_REPLACE(owner_phone, r'[^0-9]', '') AS owner_phone
+FROM `dogwood-dryad-447108-a3.Clinipet_Project.healthtail_reg_cards`
+;
